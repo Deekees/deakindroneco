@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (formType === 'booking') {
                 // Redirect to thank you page for booking submissions
-                window.location.href = 'thank-you.html';
+                window.location.href = 'https://deakindroneco.vercel.app/thank-you.html';
             } else {
                 // Show success message for contact form
                 const successMessage = document.createElement('div');
