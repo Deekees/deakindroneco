@@ -115,6 +115,12 @@ header {
     margin: 0;
 }
 
+.no-underline {
+    text-decoration: none;
+    color: inherit; /* Keeps the h1 color */
+  }
+  
+
 /* Buttons */
 .btn-primary, .btn-secondary {
     display: inline-block;
