@@ -220,6 +220,38 @@ document.addEventListener('DOMContentLoaded', function() {
         //contactForm.addEventListener('submit', (e) => handleSubmit(e, 'contact'));
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+
+            fetch('https://formsubmit.co/ajax/ideakinster@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'thank-you.html';
+                } else {
+                    alert('Something went wrong. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert('There was an error submitting the form.');
+            });
+        });
+    }
+});
+
+
     if (bookingForm) {
         //bookingForm.addEventListener('submit', (e) => handleSubmit(e, 'booking'));
 
