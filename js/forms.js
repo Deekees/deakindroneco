@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.ok) {
-                    window.location.href = 'thank-you.html';
+                    window.location.href = 'https://deakindroneco.vercel.app/thank-you.html';
                 } else {
                     alert('Something went wrong. Please try again later.');
                 }
