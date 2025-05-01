@@ -13,29 +13,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Email configuration
     const config = {
         bookingAutoReply: {
-            subject: 'Booking Confirmation - Wigan Drone Services',
-            message: `Thank you for booking with Wigan Drone Services!
+            subject: 'Booking Confirmation - Deakin Drone Co.',
+            message: `Thank you for booking with Deakin Drone Co.!
 
-We have received your booking request and will review it shortly. You can expect to hear from us within 24 hours with confirmation of your booking.
+                        We have received your booking request and will review it shortly. You can expect to hear from us within 24 hours with confirmation of your booking.
 
-What happens next:
-1. We'll review your booking details and check availability
-2. We'll send you a final confirmation email with all details
-3. We may contact you if we need any additional information
+                        What happens next:
+                        1. We'll review your booking details and check availability
+                        2. We'll send you a final confirmation email with all details
+                        3. We will contact to discuss pricing, location& timing
 
-If you have any questions in the meantime, please don't hesitate to contact us.
+                        If you have any questions in the meantime, please don't hesitate to contact us.
 
-Best regards,
-Wigan Drone Services Team`
+                        Best regards,
+                        Deakin Drone Co. Team`
         },
         contactAutoReply: {
-            subject: 'Message Received - Wigan Drone Services',
-            message: `Thank you for contacting Wigan Drone Services!
+            subject: 'Message Received - Deakin Drone Co.',
+            message: `Thank you for contacting Deakin Drone Co.!
 
-We have received your message and will get back to you as soon as possible, typically within 1-2 business days.
+                        We have received your message and will get back to you as soon as possible, typically within 1-2 business days.
 
-Best regards,
-Wigan Drone Services Team`
+                        Best regards,
+                        DD`
         }
     };
 
@@ -95,9 +95,6 @@ Wigan Drone Services Team`
 
     // Form submission handler
     function handleSubmit(event, formType) {
-        // Temporarily disabled for FormSubmit activation
-        return true;
-        /*
         event.preventDefault();
         const form = event.target;
         let isValid = true;
@@ -143,14 +140,25 @@ Wigan Drone Services Team`
         data._template = 'box';
 
         // Send form data using FormSubmit.co
-        fetch('https://formsubmit.co/ideakinster@gmail.com', {
-            method: 'POST',
+        /*fetch('https://formsubmit.co/ideakinster@gmail.com', {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify(data)
         })
+            */
+        const formDataToSend = new FormData();
+        for (const [key, value] of Object.entries(data)) {
+            formDataToSend.append(key, value);
+        }
+        
+        fetch('https://formsubmit.co/a551d0ff57de76cd3ef551b3b0347a15', {
+            method: "POST",
+            body: formDataToSend
+        })
+        
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -205,7 +213,6 @@ Wigan Drone Services Team`
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
         });
-        */
     }
 
     // Add event listeners to forms
